@@ -1,0 +1,90 @@
+#Desenvolva um código que simule uma eleição com três candidatos.
+#- candidato_X => 889
+#- candidato_Y => 847
+#- candidato_Z => 515
+#- branco => 0
+
+#O código deve perguntar se deseja finalizar a votação depois do voto. 
+#Caso o número do voto não corresponda a nenhum candidato ou seja branco, ele deve ser tratado como nulo. 
+#Se for inserido um texto ao invés de número, o código deve retornar uma mensagem para votar novamente.
+
+#Quando a votação for finalizada, o código deverá mostrar o vencedor, aquele com o maior número de votos e, também, a quantidade de votos de cada candidato, os brancos e nulos 
+
+
+#ESTE CODIGO IRÁ SIMULAR UM SISTEMA DE ELEIÇÃO DE CANDIDATOS. 
+
+import time
+
+time.sleep(2)
+print('Iniciando a urna...')
+time.sleep(2)
+
+CandidatoX = 0
+CandidatoY = 0
+CandidatoZ = 0
+Nulo = 0
+
+while True:
+    print('Escolha um candidato:')
+    print('Candidato X: 849')
+    print('Candidato Y: 887')
+    print('Candidato Z: 515')
+    print('Para nulo, vote 0')
+    try:
+        votacao = int(input('Digite o número do seu candidato: \n'))
+        time.sleep(1)
+        if votacao == 849:
+            CandidatoX += 1
+            print('Voce votou no candidato X')
+        elif votacao == 887:
+            CandidatoY += 1
+            print('Voce votou no candidato Y')
+        elif votacao == 515:
+            CandidatoZ += 1
+            print('Voce votou no candidato Z')
+        elif votacao == 0:
+            Nulo += 1 
+            print('Voce anulou seu voto')
+        else:
+            print('Digite uma opção válida')
+            continue
+        time.sleep(1)
+        sair = str(input('Deseja finalizar a votação? digite [sim] para finalizar ou [nao] para continuar:'))
+        if sair == 'sim':
+            time.sleep(1)
+            print('Votos válidos para Candidato X:',CandidatoX)
+            time.sleep(1)
+            print('Votos válidos para Candidato Y:',CandidatoY)
+            time.sleep(1)
+            print('Votos válidos para candidato Z:',CandidatoZ)
+            time.sleep(1)
+            print('Nulos:',Nulo)
+            time.sleep(1)
+            
+            if CandidatoX > CandidatoY and CandidatoX > CandidatoZ:
+                print('Candidato X eleito')
+                time.sleep(1)
+            
+            elif CandidatoY > CandidatoX and CandidatoY > CandidatoZ:
+                print('Candidato Y eleito')
+                time.sleep(1)
+            
+            elif CandidatoZ > CandidatoX and CandidatoZ > CandidatoY:
+                print('Candidato Z eleito')
+                time.sleep(1)
+           
+            elif Nulo > CandidatoX and Nulo > CandidatoY and Nulo > CandidatoZ:
+                print('Ninguém foi eleito.')
+                time.sleep(1)
+            print('Encerrando...')
+            time.sleep(1)
+            break
+        
+        elif sair == 'nao':
+            continue
+        else:
+            print('Digite SIM ou NAO ')
+            continue
+        
+    except(ValueError):
+        print('Tente novamente') 

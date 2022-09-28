@@ -1,0 +1,47 @@
+#Desenvolva um programa que deve ler um arquivo csv intitulado “notas_alunos.csv”. O arquivo deve ter a seguinte estrutura:
+
+#aluno: Nome do aluno;
+#nota_1: Primeira nota;
+#nota_2: Segunda nota;
+#faltas: Número de faltas;
+
+#O programa lerá esse arquivo e criará duas colunas. A primeira coluna será “media”, que terá a média das duas notas do aluno. A segunda será “situacao”, com os valores: APROVADO ou REPROVADO.
+
+#O aluno que tiver mais de 5 faltas ou possuir média menor que sete, será reprovado. O programa deverá salvar esse novo dataframe com o nome “alunos_situacao.csv”.
+
+#Por fim, o programa deverá mostrar na tela:
+#- o maior número de faltas;
+#- a média geral das notas dos alunos;
+#- e a maior média.
+
+#Veja em anexo um exemplo do arquivo “notas_alunos.csv”.
+
+#ESTE PROGRAMA IRÁ ORGANIZAR NOTAS 
+
+import pandas as pd
+
+
+table = {'aluno': ['alunoA', 'alunoB', 'alunoC', 'alunoD'],
+        'nota1': [7, 7, 8, 9],
+        'nota2': [9, 9, 7, 6],
+        'faltas': [6, 5, 7, 8]
+        }
+df = pd.DataFrame(table)
+
+df['media'] = df['nota1'] + df['nota2']
+df['media'] = df['media'] / 2
+df['resultado'] = 0
+
+df.loc[df['media'] >= 7, 'resultado'] = "APROVADO"
+df.loc[df['media'] < 7, 'resultado'] = "REPROVADO"
+df.loc[df['faltas'] > 5, 'resultado'] = "REPROVADO"
+
+media = df['media'].median()
+falta = df['faltas'].max()
+maiorMedia = df['media'].max()
+
+print(df)
+
+print('média geral: ' +str (media))
+print('maior quantitativo de faltas: ' +str (falta))
+print('maior média: ' +str (maiorMedia))

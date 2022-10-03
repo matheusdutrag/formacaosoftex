@@ -1,0 +1,25 @@
+#CLASSIFICACAO DE OBJETOS
+
+class smartphone ():
+    marca = input ('marca')
+    modelo = input ('modelo')
+    armazenamento = int
+    memoria = int
+    valor = float
+
+    method iniciar ()
+    if (status == true):
+    print ('inicializando')
+    elif ():
+    print ('erro ao inicializar')
+
+    endif 
+    end method
+
+    method reboot ()
+    status = true
+    print ('reiniciando')
+    
+    end method
+
+end class

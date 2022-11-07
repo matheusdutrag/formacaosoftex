@@ -1,0 +1,23 @@
+int main()
+{
+float nota;
+
+printf("Insira sua nota: ");
+scanf("%f.2",&nota);
+
+if((nota >= 0) && (nota <= 10))
+{
+if(nota >= 7.00)
+printf("Parabéns, você foi aprovado!");
+if((nota >= 4.00) && (nota < 7.00))
+printf("Você deve fazer outra prova de recuperação.");
+if(nota < 4.00)
+printf("Reprovado.");
+}
+
+else
+printf("o valor digitado é inválido.");
+
+return 0;
+
+}
